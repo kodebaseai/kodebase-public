@@ -1,6 +1,6 @@
 {
   "name": "kodebase",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Kodebase MCP Server - AI-powered project planning and implementation guidance",
   "keywords": [
     "kodebase",
@@ -26,7 +26,8 @@
   },
   "type": "module",
   "bin": {
-    "kodebase": "./dist/cli.js"
+    "kodebase": "./dist/cli.js",
+    "kb": "./dist/kb.js"
   },
   "files": [
     "dist",
@@ -39,8 +40,10 @@
     "prepublishOnly": "pnpm run build"
   },
   "devDependencies": {
+    "@kodebase/cli": "workspace:*",
     "@kodebase/mcp-server": "workspace:*",
     "@kodebase/typescript-config": "workspace:*",
+    "@types/node": "^22.15.29",
     "tsup": "^8.5.1",
     "typescript": "5.9.3"
   }

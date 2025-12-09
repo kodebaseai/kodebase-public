@@ -1,5 +1,15 @@
 # kodebase
 
+## 0.2.1
+
+### Patch Changes
+
+- [`bea1938`](https://github.com/kodebaseai/kodebase/commit/bea1938119b36358b2e926d9c2abd264fac058d2) Thanks [@migcarva](https://github.com/migcarva)! - Fix ESM dynamic require error when running `kodebase` CLI
+
+  - Disable tsup shims to prevent esbuild from generating a broken require shim
+  - Add createRequire banner to provide proper require() support for dependencies that need it (like yaml's binary tag handler)
+  - This fixes the "Dynamic require of X is not supported" error that occurred when running the globally installed CLI
+
 ## 0.2.0
 
 ### Minor Changes
