@@ -1,0 +1,47 @@
+{
+  "name": "kodebase",
+  "version": "0.1.0",
+  "description": "Kodebase MCP Server - AI-powered project planning and implementation guidance",
+  "keywords": [
+    "kodebase",
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "claude",
+    "cursor",
+    "project-planning",
+    "software-development"
+  ],
+  "license": "MIT",
+  "homepage": "https://kodebase.ai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodebaseai/kodebase-public.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kodebaseai/kodebase-public/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "bin": {
+    "kodebase": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist",
+    "prebuild": "pnpm clean",
+    "prepublishOnly": "pnpm run build"
+  },
+  "devDependencies": {
+    "@kodebase/mcp-server": "workspace:*",
+    "@kodebase/typescript-config": "workspace:*",
+    "tsup": "^8.5.1",
+    "typescript": "5.9.3"
+  }
+}
