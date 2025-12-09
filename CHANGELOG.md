@@ -1,5 +1,13 @@
 # kodebase
 
+## 0.3.0
+
+### Minor Changes
+
+- [`643f5cf`](https://github.com/kodebaseai/kodebase/commit/643f5cfc724ea61fca62941bcd9514a4d3db27c3) Thanks [@migcarva](https://github.com/migcarva)! - Bundle the `kb` CLI into the kodebase npm package. Users now get both commands from a single install:
+  - `kodebase` - MCP server for AI assistants
+  - `kb` - CLI for project management (init, start, status, etc.)
+
 ## 0.2.1
 
 ### Patch Changes
