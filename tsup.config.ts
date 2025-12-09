@@ -1,21 +1,25 @@
 import { defineConfig } from "tsup";
 
+// ESM bundles need a real require() for dependencies that use dynamic require
+// (e.g., yaml's binary tag handler). createRequire provides this.
+const esmRequireShim = `import{createRequire as __cr}from'node:module';const require=__cr(import.meta.url);`;
+
 export default defineConfig({
   entry: ["src/cli.ts"],
   format: ["esm"],
-  dts: false, // No type definitions needed for CLI
+  dts: false,
   splitting: false,
-  sourcemap: false, // Keep bundle small
+  sourcemap: false,
   clean: true,
-  shims: true,
-  minify: true, // Minify for distribution
+  shims: false, // MUST be false - tsup's shims break dynamic require in ESM
+  minify: true,
   target: "node22",
   platform: "node",
-  // Bundle everything - no external dependencies
   noExternal: [/.*/],
   esbuildOptions(options) {
     options.banner = {
-      js: "#!/usr/bin/env node",
+      ...options.banner,
+      js: `#!/usr/bin/env node\n${esmRequireShim}`,
     };
   },
 });
